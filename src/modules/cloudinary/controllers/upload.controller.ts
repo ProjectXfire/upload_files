@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Post,
+  Query,
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
@@ -17,8 +18,11 @@ export class UploadController {
 
   @Post('upload')
   @UseInterceptors(FilesInterceptor('files'))
-  uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
-    return this.uploadService.uploadImages(files);
+  uploadFiles(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Query('folder') folder?: string,
+  ) {
+    return this.uploadService.uploadImages(files, folder);
   }
 
   @Post('delete')

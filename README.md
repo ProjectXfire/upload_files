@@ -58,6 +58,30 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Upload files
+
+URL: localhost/cloudinary/upload
+
+Using form data to select the images
+
+key: files
+Value: <Images>
+
+If you want to create a custom path in cloudinary you can add /upload?folder=<path>
+path must be like => folder, folder/folder1 or folder/folder1/folder2, etc.
+
+## Delete images
+
+URL: localhost/cloudinary/delete
+
+You can delete one or many images
+
+body:JSON
+
+{
+"images": [{"secure:url": "url", "public_id": "id or path/id"}]
+}
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).

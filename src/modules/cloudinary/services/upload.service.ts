@@ -6,7 +6,7 @@ import { ImagesDto } from '../dtos/images.dto';
 
 @Injectable()
 export class UploadService {
-  async uploadImages(files: Array<Express.Multer.File>) {
+  async uploadImages(files: Array<Express.Multer.File>, folder?: string) {
     try {
       const uploadingImages = files
         .map(
@@ -17,7 +17,7 @@ export class UploadService {
           (base64File) =>
             new Promise<UploadApiResponse>((resolve, reject) => {
               v2.uploader
-                .upload(base64File, { folder: 'journal' })
+                .upload(base64File, { folder: folder ?? '' })
                 .then((res) => resolve(res))
                 .catch((err) => reject(err));
             }),
