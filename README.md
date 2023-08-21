@@ -65,9 +65,9 @@ URL: localhost/cloudinary/upload
 Using form data to select the images
 
 key: files
-Value: <Images>
+Value: Images
 
-If you want to create a custom path in cloudinary you can add /upload?folder=<path>
+If you want to create a custom path in cloudinary you can add /upload?folder=path
 path must be like => folder, folder/folder1 or folder/folder1/folder2, etc.
 
 ## Delete images
